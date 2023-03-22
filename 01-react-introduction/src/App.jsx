@@ -4,7 +4,7 @@ export function App() {
   return (
     <div className="App">
       <h1>Hello to the React World</h1>
-      <Greetings firstName={"Issa"} age={2} />
+      <Greetings firstName={"Issa"} age={21} itsSunny={false} />
     </div>
   );
 }
