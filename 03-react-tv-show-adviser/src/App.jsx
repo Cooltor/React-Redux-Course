@@ -1,7 +1,24 @@
+import React from "react";
+import "./global.css";
+import s from "./style.module.css";
+
 export function App() {
   return (
-    <div>
-      <h1>My App</h1>
+    <div className={s.main_container}>
+      <div className={s.header}>
+        <div className="row">
+          <div className="col-4">
+            <div>Logo</div>
+            <div>subtitle</div>
+          </div>
+
+          <div className="col-md-12 col-lg-4">
+            <input style={{ width: "100%" }} type="text" />
+          </div>
+        </div>
+      </div>
+      <div className={s.tv_show_detail}>Detail</div>
+      <div className={s.recommendations}>Recommandations</div>
     </div>
   );
 }
