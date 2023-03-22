@@ -6,9 +6,9 @@ export function MenuListItem({ onClick, difficulty, isSelected }) {
 
   function getBackgroundColor() {
     if (isHovered) {
-      return "#a5e9ff";
+      return "#54F08A";
     } else if (isSelected) {
-      return "#26baea";
+      return "#39A35E";
     } else {
       return "#eff0ef";
     }
