@@ -1,0 +1,9 @@
+.workspace {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+}
