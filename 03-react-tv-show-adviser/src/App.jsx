@@ -7,8 +7,9 @@ import { BACKDROP_BASE_URL } from "./config";
 import "./global.css";
 import s from "./style.module.css";
 import logo from "./assets/images/logo.png";
-import { TVShowListItem } from "./components/TVShowListItem/TVShowListItem";
+
 import { TVShowList } from "./components/TVShowList/TVShowList";
+import { SearchBar } from "./components/SearchBar/SearchBar";
 
 export function App() {
   const [currentTVShow, setCurrentTVShow] = useState(null);
@@ -38,6 +39,13 @@ export function App() {
     }
   }, [currentTVShow]);
 
+  async function searchTVShow(tvShowName) {
+    const searchResponse = await TVShowAPI.fetchByTitle(tvShowName);
+    if (searchResponse.length > 0) {
+      setCurrentTVShow(searchResponse[0]);
+    }
+  }
+
   function setCurrentTVShowFromRecommendation(tvShow) {
     setCurrentTVShow(tvShow);
   }
@@ -56,13 +64,13 @@ export function App() {
           <div className="col-4">
             <Logo
               image={logo}
-              title="Watowatch"
+              title="What You'll Like Watch"
               subtitle="Find a show you may like"
             />
           </div>
-          Ò
+
           <div className="col-md-12 col-lg-4">
-            <input style={{ width: "100%" }} type="text" />
+            <SearchBar onSubmit={searchTVShow} />
           </div>
         </div>
       </div>
