@@ -16,9 +16,13 @@ export function App() {
   const [recommendations, setRecommendations] = useState([]);
 
   async function fetchPopulars() {
-    const populars = await TVShowAPI.fetchPopulars();
-    if (populars.length > 0) {
-      setCurrentTVShow(populars[0]);
+    try {
+      const populars = await TVShowAPI.fetchPopulars();
+      if (populars.length > 0) {
+        setCurrentTVShow(populars[0]);
+      }
+    } catch (error) {
+      alert("Erreur durant la recherche des séries populaires");
     }
   }
 
@@ -40,9 +44,13 @@ export function App() {
   }, [currentTVShow]);
 
   async function searchTVShow(tvShowName) {
-    const searchResponse = await TVShowAPI.fetchByTitle(tvShowName);
-    if (searchResponse.length > 0) {
-      setCurrentTVShow(searchResponse[0]);
+    try {
+      const searchResponse = await TVShowAPI.fetchByTitle(tvShowName);
+      if (searchResponse.length > 0) {
+        setCurrentTVShow(searchResponse[0]);
+      }
+    } catch (error) {
+      alert("Erreur durant la recherche de la série");
     }
   }
 
