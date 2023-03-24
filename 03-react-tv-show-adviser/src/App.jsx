@@ -8,6 +8,7 @@ import "./global.css";
 import s from "./style.module.css";
 import logo from "./assets/images/logo.png";
 import { TVShowListItem } from "./components/TVShowListItem/TVShowListItem";
+import { TVShowList } from "./components/TVShowList/TVShowList";
 
 export function App() {
   const [currentTVShow, setCurrentTVShow] = useState(null);
@@ -38,7 +39,6 @@ export function App() {
   }, [currentTVShow]);
 
   function setCurrentTVShowFromRecommendation(tvShow) {
-    alert(JSON.stringify(tvShow));
     setCurrentTVShow(tvShow);
   }
 
@@ -70,10 +70,10 @@ export function App() {
         {currentTVShow && <TVShowDetail tvShow={currentTVShow} />}
       </div>
       <div className={s.recommendations}>
-        {currentTVShow && (
-          <TVShowListItem
-            onClick={setCurrentTVShowFromRecommendation}
-            tvShow={currentTVShow}
+        {recommendations && recommendations.length > 0 && (
+          <TVShowList
+            tvShows={recommendations}
+            onClickItem={setCurrentTVShowFromRecommendation}
           />
         )}
       </div>
