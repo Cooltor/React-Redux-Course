@@ -10,7 +10,7 @@ export function TVShowDetail({ tvShow }) {
         <FiveStarRating rating={rating} />
         <div className={s.rating}>{rating}</div>
       </div>
-      <div className={s.overview}>{tvShow.overview}</div>;
+      <div className={s.overview}>{tvShow.overview}</div>
     </>
   );
 }
